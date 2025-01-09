@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+.grid-background {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0));
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+/* Fade in animation for page content */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-content {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Hover effect for nav icons */
+.nav-icon {
+  position: relative;
+}
+
+.nav-icon::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: theme('colors.purple.400');
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-icon:hover::after {
+  width: 100%;
+}
